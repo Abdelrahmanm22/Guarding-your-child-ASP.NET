@@ -1,4 +1,5 @@
 
+using System.Threading.Tasks;
 using GuardingChild.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace GuardingChild
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,21 @@ namespace GuardingChild
             #endregion
 
             var app = builder.Build();
+            #region Update Database
+            using var Scope = app.Services.CreateScope(); //group of services that lifetime scooped
+            var Services = Scope.ServiceProvider; //catch services its self
+            var LoggerFactory = Services.GetRequiredService<ILoggerFactory>();
+            try
+            {
+                var dbContext = Services.GetRequiredService<GuardingChildContext>(); //ASK CLR for Creating Object From DbContext Explicitly
+                await dbContext.Database.MigrateAsync(); //Update - Database
+            }
+            catch (Exception ex) {
+                var Logger = LoggerFactory.CreateLogger<Program>();
+                Logger.LogError(ex, "An Error Occured During Appling The Migration");
+            }
+
+            #endregion
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

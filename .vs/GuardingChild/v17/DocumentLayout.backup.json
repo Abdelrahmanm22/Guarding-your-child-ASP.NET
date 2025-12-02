@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\data\\configurations\\kidconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:data\\configurations\\kidconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\data\\configurations\\kidconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:data\\configurations\\kidconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 270,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAswCUAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T20:10:57.177Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -34,18 +55,14 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "KidConfig.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\Configurations\\KidConfig.cs",
               "RelativeDocumentMoniker": "Data\\Configurations\\KidConfig.cs",
               "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\Configurations\\KidConfig.cs",
               "RelativeToolTip": "Data\\Configurations\\KidConfig.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwBYAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAzwBYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T19:15:47.43Z",
               "EditorCaption": ""
