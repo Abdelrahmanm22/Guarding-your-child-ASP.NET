@@ -1,4 +1,7 @@
 
+using GuardingChild.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace GuardingChild
 {
     public class Program
@@ -9,9 +12,15 @@ namespace GuardingChild
 
             // Add services to the container.
 
+            #region Configure Services
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<GuardingChildContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+            #endregion
 
             var app = builder.Build();
 

@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\data\\guardingchildcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:data\\guardingchildcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,19 +43,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-02T19:11:47.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-02T19:10:09.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GuardingChildContext.cs",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\GuardingChildContext.cs",
+              "RelativeDocumentMoniker": "Data\\GuardingChildContext.cs",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\GuardingChildContext.cs",
+              "RelativeToolTip": "Data\\GuardingChildContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T19:04:54.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBQAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T18:57:15.701Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Gender.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Enums\\Gender.cs",
               "RelativeDocumentMoniker": "Enums\\Gender.cs",
@@ -51,12 +102,11 @@
               "RelativeToolTip": "Enums\\Gender.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T18:30:59.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T18:30:59.094Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Kid.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Models\\Kid.cs",
               "RelativeDocumentMoniker": "Models\\Kid.cs",
@@ -64,8 +114,7 @@
               "RelativeToolTip": "Models\\Kid.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T18:27:01.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T18:27:01.148Z"
             }
           ]
         }
