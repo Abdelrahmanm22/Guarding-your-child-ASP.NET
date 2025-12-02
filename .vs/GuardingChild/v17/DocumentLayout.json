@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\enums\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:enums\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 270,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T18:57:15.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Gender.cs",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Enums\\Gender.cs",
+              "RelativeDocumentMoniker": "Enums\\Gender.cs",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Enums\\Gender.cs",
+              "RelativeToolTip": "Enums\\Gender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T18:30:59.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Kid.cs",
+              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Models\\Kid.cs",
+              "RelativeDocumentMoniker": "Models\\Kid.cs",
+              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Models\\Kid.cs",
+              "RelativeToolTip": "Models\\Kid.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T18:27:01.148Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
