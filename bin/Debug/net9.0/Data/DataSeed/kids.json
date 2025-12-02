@@ -1,0 +1,42 @@
+[
+  {
+    "Index": 1,
+    "SSN": "123-456-789",
+    "First_Name": "ibrahim",
+    "Last_Name": "ismail",
+    "Gender": "Male",
+    "BirthDate": "2001-01-27"
+  },
+  {
+    "Index": 2,
+    "SSN": "123-546-788",
+    "First_Name": "abdelrahman",
+    "Last_Name": "mohamed",
+    "Gender": "Male",
+    "BirthDate": "2001-09-20"
+  },
+  {
+    "Index": 3,
+    "SSN": "123-546-755",
+    "First_Name": "abdelrahman",
+    "Last_Name": "tarek",
+    "Gender": "Male",
+    "BirthDate": "2001-02-02"
+  },
+  {
+    "Index": 4,
+    "SSN": "123-336-755",
+    "First_Name": "youssef",
+    "Last_Name": "diaa",
+    "Gender": "Male",
+    "BirthDate": "2001-03-03"
+  },
+  {
+    "Index": 5,
+    "SSN": "123-226-755",
+    "First_Name": "ziyad",
+    "Last_Name": "farag",
+    "Gender": "Male",
+    "BirthDate": "2001-05-09"
+  }
+]

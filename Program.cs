@@ -32,6 +32,10 @@ namespace GuardingChild
             {
                 var dbContext = Services.GetRequiredService<GuardingChildContext>(); //ASK CLR for Creating Object From DbContext Explicitly
                 await dbContext.Database.MigrateAsync(); //Update - Database
+
+                #region Data Seeding
+                await GuardingChildSeed.SeedAsync(dbContext);
+                #endregion
             }
             catch (Exception ex) {
                 var Logger = LoggerFactory.CreateLogger<Program>();

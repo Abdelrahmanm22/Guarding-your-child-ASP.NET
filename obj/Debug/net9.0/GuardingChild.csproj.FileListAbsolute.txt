@@ -165,3 +165,4 @@ D:\My Career\ASP.NET\MyProjects\GuardingChild\obj\Debug\net9.0\GuardingChild.gen
 D:\My Career\ASP.NET\MyProjects\GuardingChild\obj\Debug\net9.0\ref\GuardingChild.dll
 D:\My Career\ASP.NET\MyProjects\GuardingChild\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\My Career\ASP.NET\MyProjects\GuardingChild\obj\Debug\net9.0\GuardingChild.sourcelink.json
+D:\My Career\ASP.NET\MyProjects\GuardingChild\bin\Debug\net9.0\Data\DataSeed\kids.json
