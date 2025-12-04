@@ -1,3 +1,5 @@
+using AutoMapper;
+using GuardingChild.DTOs;
 using GuardingChild.Models;
 using GuardingChild.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -8,17 +10,20 @@ namespace GuardingChild.Controllers
     public class KidController : APIBaseController
     {
         private readonly IGenericRepository<Kid> _kidRepository;
+        private readonly IMapper _mapper;
 
-        public KidController(IGenericRepository<Kid> kidRepository)
+        public KidController(IGenericRepository<Kid> kidRepository,IMapper mapper)
         {
             _kidRepository = kidRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Kid>>> GetKids()
+        public async Task<ActionResult<IReadOnlyList<KidToReturnDto>>> GetKids()
         {
             var kids = await _kidRepository.GetAllAsync();
-            return Ok(kids);
+            var kidsDto = _mapper.Map<IReadOnlyList<KidToReturnDto>>(kids);
+            return Ok(kidsDto);
         }
 
         [HttpGet("{id}")]
@@ -29,7 +34,9 @@ namespace GuardingChild.Controllers
             {
                 return NotFound();
             }
-            return Ok(kid);
+
+            var kidDto = _mapper.Map<KidToReturnDto>(kid);
+            return Ok(kidDto);
         }
     }
 }
