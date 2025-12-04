@@ -1,5 +1,6 @@
 using AutoMapper;
 using GuardingChild.DTOs;
+using GuardingChild.Errors;
 using GuardingChild.Models;
 using GuardingChild.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,7 @@ namespace GuardingChild.Controllers
             var kid = await _kidRepository.GetByIdAsync(id);
             if (kid is null)
             {
-                return NotFound();
+                return NotFound(new ApiResponse(404));
             }
 
             var kidDto = _mapper.Map<KidToReturnDto>(kid);
