@@ -20,5 +20,16 @@ namespace GuardingChild.Controllers
             var kids = await _kidRepository.GetAllAsync();
             return Ok(kids);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Kid>> GetKid(int id)
+        {
+            var kid = await _kidRepository.GetByIdAsync(id);
+            if (kid is null)
+            {
+                return NotFound();
+            }
+            return Ok(kid);
+        }
     }
 }

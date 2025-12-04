@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.pdb
+*.mdb
+*.log
+*.db
+*.jfm
+*.ds_store
+.env
