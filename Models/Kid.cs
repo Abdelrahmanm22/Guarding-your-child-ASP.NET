@@ -2,9 +2,8 @@
 
 namespace GuardingChild.Models
 {
-    public class Kid
+    public class Kid : BaseModel
     {
-        public int Id { get; set; }
         public long Index { get; set; }
         public string SSN { get; set; }
         public string First_Name { get; set; }

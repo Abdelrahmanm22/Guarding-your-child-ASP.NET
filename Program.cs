@@ -1,6 +1,8 @@
 
 using System.Threading.Tasks;
 using GuardingChild.Data;
+using GuardingChild.Repositories.Concretes;
+using GuardingChild.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace GuardingChild
@@ -21,6 +23,7 @@ namespace GuardingChild
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             #endregion
 
             var app = builder.Build();
