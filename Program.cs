@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using GuardingChild.Data;
 using GuardingChild.Errors;
 using GuardingChild.Helpers;
+using GuardingChild.Middlewares;
 using GuardingChild.Repositories.Concretes;
 using GuardingChild.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -72,6 +73,7 @@ namespace GuardingChild
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.UseMiddleware<ExceptionMiddleware>();
                 app.MapOpenApi();
                 app.UseSwaggerUI(options =>
                 {
@@ -80,7 +82,7 @@ namespace GuardingChild
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseAuthorization();
 
 
