@@ -19,11 +19,10 @@ namespace GuardingChild.Controllers
             _kidRepository = kidRepository;
             _mapper = mapper;
         }
-
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<KidToReturnDto>>> GetKids()
+        public async Task<ActionResult<IReadOnlyList<KidToReturnDto>>> GetKids(string? ssn)
         {
-            var spec = new KidWithGuardingSpecification();
+            var spec = new KidWithGuardingSpecification(ssn);
             var kids = await _kidRepository.GetAllAsync(spec);
             var kidsDto = _mapper.Map<IReadOnlyList<KidToReturnDto>>(kids);
             return Ok(kidsDto);

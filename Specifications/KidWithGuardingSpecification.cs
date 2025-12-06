@@ -4,7 +4,10 @@ namespace GuardingChild.Specifications;
 
 public class KidWithGuardingSpecification : BaseSpecification<Kid>
 {
-    public KidWithGuardingSpecification():base()
+    public KidWithGuardingSpecification(string? ssn)
+        :base(k=>
+            (string.IsNullOrEmpty(ssn) || k.SSN.Contains(ssn))
+        )
     {
         Includes.Add(k=>k.Guardian);
     }
