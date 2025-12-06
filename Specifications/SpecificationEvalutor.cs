@@ -14,15 +14,6 @@ public static class SpecificationEvalutor<T> where T:BaseModel
             Query = Query.Where(spec.Criteria); //_dbContext.Set<T>().where(P=>P.Id==id)
         }
 
-        if (spec.OrderBy is not null)
-        {
-            Query = Query.OrderBy(spec.OrderBy);
-        }
-
-        if (spec.OrderByDesc is not null)
-        {
-            Query = Query.OrderByDescending(spec.OrderByDesc);
-        }
 
         Query = spec.Includes.Aggregate(Query, (CurrentQuery, NextIncludeExpression) => CurrentQuery.Include(NextIncludeExpression));
         return Query;
