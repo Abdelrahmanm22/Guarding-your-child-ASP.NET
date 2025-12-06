@@ -4,6 +4,7 @@ using GuardingChild.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuardingChild.Data.Migrations
 {
     [DbContext(typeof(GuardingChildContext))]
-    partial class GuardingChildContextModelSnapshot : ModelSnapshot
+    [Migration("20251206155245_CreateGuaedianTableAndRelationWithKid")]
+    partial class CreateGuaedianTableAndRelationWithKid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,7 +85,7 @@ namespace GuardingChild.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int?>("GuardianId")
+                    b.Property<int>("GuardianId")
                         .HasColumnType("int");
 
                     b.Property<long>("Index")
@@ -112,7 +115,8 @@ namespace GuardingChild.Data.Migrations
                     b.HasOne("GuardingChild.Models.Guardian", "Guardian")
                         .WithMany("Kids")
                         .HasForeignKey("GuardianId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Guardian");
                 });

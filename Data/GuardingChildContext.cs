@@ -15,5 +15,6 @@ namespace GuardingChild.Data
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public DbSet<Kid> kids { get; set; }
+        public DbSet<Guardian> guardians { get; set; }
     }
 }

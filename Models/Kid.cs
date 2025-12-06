@@ -10,5 +10,7 @@ namespace GuardingChild.Models
         public string Last_Name { get; set; }
         public Gender? Gender { get; set; }
         public DateTime? BirthDate { get; set; }
+        public int? GuardianId { get; set; }
+        public Guardian? Guardian { get; set; }
     }
 }

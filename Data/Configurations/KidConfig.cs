@@ -8,20 +8,19 @@ namespace GuardingChild.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Kid> builder)
         {
-            builder.Property(p => p.First_Name)
+            builder.Property(k => k.First_Name)
                 .IsRequired()
                 .HasMaxLength(100);
-            builder.Property(p => p.Last_Name)
+            builder.Property(k => k.Last_Name)
                 .IsRequired()
                 .HasMaxLength(100);
-            builder.Property(p => p.SSN)
+            builder.Property(k => k.SSN)
                 .IsRequired();
-            builder.HasIndex(p => p.SSN)
+            builder.HasIndex(k => k.SSN)
                 .IsUnique();
-            builder.Property(p => p.Gender)
+            builder.Property(k => k.Gender)
                 .HasConversion<string>() // store as text
                 .HasMaxLength(10);
-
         }
     }
 }
