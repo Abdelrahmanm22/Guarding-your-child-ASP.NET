@@ -70,6 +70,7 @@ namespace GuardingChild
 
             #endregion
 
+            #region Configure the HTTP request pipeline.
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -80,14 +81,12 @@ namespace GuardingChild
                     options.SwaggerEndpoint("/openapi/v1.json", "api");
                 });
             }
-
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthorization();
-
-
             app.MapControllers();
-
+            #endregion
             app.Run();
         }
     }
