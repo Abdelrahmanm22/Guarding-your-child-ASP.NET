@@ -1,9 +1,11 @@
 
 using System.Threading.Tasks;
 using GuardingChild.Data;
+using GuardingChild.Errors;
 using GuardingChild.Helpers;
 using GuardingChild.Repositories.Concretes;
 using GuardingChild.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GuardingChild
@@ -26,6 +28,24 @@ namespace GuardingChild
             });
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             builder.Services.AddAutoMapper(typeof(MappingProfiles));
+            #region validation error
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = (actionContext =>
+                {
+                    var errors = actionContext.ModelState
+                        .Where(p=>p.Value.Errors.Count()>0)
+                        .SelectMany(p=>p.Value.Errors)
+                        .Select(p=>p.ErrorMessage)
+                        .ToList();
+                    var ValidationErrorResponse = new ApiValidationErrorResponse()
+                    {
+                        Errors = errors
+                    };
+                    return new BadRequestObjectResult(ValidationErrorResponse);
+                });
+            });
+            #endregion
             #endregion
 
             var app = builder.Build();
