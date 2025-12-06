@@ -1,6 +1,7 @@
 ﻿using GuardingChild.Data;
 using GuardingChild.Models;
 using GuardingChild.Repositories.Interfaces;
+using GuardingChild.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace GuardingChild.Repositories.Concretes
@@ -17,10 +18,23 @@ namespace GuardingChild.Repositories.Concretes
         {
             return await dbContext.Set<T>().ToListAsync();
         }
+        public async Task<IReadOnlyList<T>> GetAllAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
+        }
 
         public async Task<T> GetByIdAsync(int id)
         {
             return await dbContext.Set<T>().FindAsync(id);
+        }
+        public async Task<T> GetByIdAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
+
+        private IQueryable<T> ApplySpecification(ISpecification<T> spec)
+        {
+            return SpecificationEvalutor<T>.BuildQuery(dbContext.Set<T>(), spec);
         }
     }
 }
