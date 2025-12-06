@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using GuardingChild.Data;
 using GuardingChild.Errors;
+using GuardingChild.Extensions;
 using GuardingChild.Helpers;
 using GuardingChild.Middlewares;
 using GuardingChild.Repositories.Concretes;
@@ -27,26 +28,7 @@ namespace GuardingChild
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
-            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            builder.Services.AddAutoMapper(typeof(MappingProfiles));
-            #region validation error
-            builder.Services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = (actionContext =>
-                {
-                    var errors = actionContext.ModelState
-                        .Where(p=>p.Value.Errors.Count()>0)
-                        .SelectMany(p=>p.Value.Errors)
-                        .Select(p=>p.ErrorMessage)
-                        .ToList();
-                    var ValidationErrorResponse = new ApiValidationErrorResponse()
-                    {
-                        Errors = errors
-                    };
-                    return new BadRequestObjectResult(ValidationErrorResponse);
-                });
-            });
-            #endregion
+            builder.Services.AddApplicationServices();
             #endregion
 
             var app = builder.Build();
