@@ -30,7 +30,7 @@ namespace GuardingChild.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Kid>> GetKid(int id)
+        public async Task<ActionResult<KidToReturnDto>> GetKid(int id)
         {
             var spec = new KidWithGuardingSpecification(id);
             var kid = await _kidRepository.GetByIdAsync(spec);

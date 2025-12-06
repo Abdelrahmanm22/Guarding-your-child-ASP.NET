@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\Migrations\\20251206155852_MakeGuardianIdNullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\Migrations\\20251206155852_MakeGuardianIdNullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\data\\migrations\\20251206155852_makeguardianidnullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:data\\migrations\\20251206155852_makeguardianidnullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Models\\Kid.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T11:15:19.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T11:15:19.081Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "Repositories\\Concretes\\GenericRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T11:14:27.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T11:14:27.443Z"
             },
             {
               "$type": "Document",

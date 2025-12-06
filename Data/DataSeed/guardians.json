@@ -1,0 +1,42 @@
+﻿[
+  {
+    "SSN_Father": "111-111-111",
+    "Father_Name": "Ismail Ibrahim",
+    "SSN_Mother": "222-222-222",
+    "Mother_Name": "Fatma Ali",
+    "Address": "Cairo, Egypt",
+    "Phone": "01000000001"
+  },
+  {
+    "SSN_Father": "333-333-333",
+    "Father_Name": "Mohamed Ramadan",
+    "SSN_Mother": "444-444-444",
+    "Mother_Name": "Sara Hassan",
+    "Address": "Giza, Egypt",
+    "Phone": "01000000002"
+  },
+  {
+    "SSN_Father": "333-333-333",
+    "Father_Name": "Tarek Tarek",
+    "SSN_Mother": "444-444-444",
+    "Mother_Name": "Gamila Hassan",
+    "Address": "Haram, Egypt",
+    "Phone": "01000000052"
+  },
+  {
+    "SSN_Father": "333-333-333",
+    "Father_Name": "Diaa Soltan",
+    "SSN_Mother": "444-444-444",
+    "Mother_Name": "mariam Hassan",
+    "Address": "Giza, Egypt",
+    "Phone": "01000380002"
+  },
+  {
+    "SSN_Father": "333-333-333",
+    "Father_Name": "Farag zaki",
+    "SSN_Mother": "444-444-444",
+    "Mother_Name": "Nada Hassan",
+    "Address": "Imbaba, Egypt",
+    "Phone": "01006380002"
+  }
+]
