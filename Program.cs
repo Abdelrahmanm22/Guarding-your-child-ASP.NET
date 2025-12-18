@@ -29,6 +29,7 @@ namespace GuardingChild
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             builder.Services.AddApplicationServices();
+            builder.Services.AddIdentityServices();
             #endregion
 
             var app = builder.Build();
@@ -66,6 +67,7 @@ namespace GuardingChild
             app.UseStatusCodePagesWithReExecute("/errors/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
             #endregion

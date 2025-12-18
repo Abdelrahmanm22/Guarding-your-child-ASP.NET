@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\data\\migrations\\20251206155852_makeguardianidnullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:data\\migrations\\20251206155852_makeguardianidnullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|d:\\my career\\asp.net\\myprojects\\guardingchild\\models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C034E947-A307-4E22-AABE-47E055509261}|GuardingChild.csproj|solutionrelative:models\\kid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,31 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20251206155852_MakeGuardianIdNullable.cs",
-              "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\Migrations\\20251206155852_MakeGuardianIdNullable.cs",
-              "RelativeDocumentMoniker": "Data\\Migrations\\20251206155852_MakeGuardianIdNullable.cs",
-              "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Data\\Migrations\\20251206155852_MakeGuardianIdNullable.cs",
-              "RelativeToolTip": "Data\\Migrations\\20251206155852_MakeGuardianIdNullable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T15:58:52.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Kid.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Models\\Kid.cs",
               "RelativeDocumentMoniker": "Models\\Kid.cs",
               "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Models\\Kid.cs",
               "RelativeToolTip": "Models\\Kid.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T11:15:19.081Z"
+              "WhenOpened": "2025-12-04T11:15:19.081Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "BaseModel.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Models\\BaseModel.cs",
               "RelativeDocumentMoniker": "Models\\BaseModel.cs",
@@ -75,19 +59,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Repositories\\Concretes\\GenericRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Concretes\\GenericRepository.cs",
               "ToolTip": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Repositories\\Concretes\\GenericRepository.cs",
               "RelativeToolTip": "Repositories\\Concretes\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-04T11:14:27.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\My Career\\ASP.NET\\MyProjects\\GuardingChild\\Repositories\\Interfaces\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IGenericRepository.cs",
