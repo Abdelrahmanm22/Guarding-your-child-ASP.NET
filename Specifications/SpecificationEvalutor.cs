@@ -13,8 +13,11 @@ public static class SpecificationEvalutor<T> where T:BaseModel
         {
             Query = Query.Where(spec.Criteria); //_dbContext.Set<T>().where(P=>P.Id==id)
         }
-
-
+        
+        if (spec.IsPagingEnabled)
+        {
+            Query = Query.Skip(spec.Skip).Take(spec.Take);
+        }
         Query = spec.Includes.Aggregate(Query, (CurrentQuery, NextIncludeExpression) => CurrentQuery.Include(NextIncludeExpression));
         return Query;
     }

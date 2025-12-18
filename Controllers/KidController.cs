@@ -1,6 +1,7 @@
 using AutoMapper;
 using GuardingChild.DTOs;
 using GuardingChild.Errors;
+using GuardingChild.Helpers;
 using GuardingChild.Models;
 using GuardingChild.Repositories.Interfaces;
 using GuardingChild.Specifications;
@@ -20,12 +21,14 @@ namespace GuardingChild.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<KidToReturnDto>>> GetKids(string? ssn)
+        public async Task<ActionResult<Pagination<KidToReturnDto>>> GetKids([FromQuery]KidSpecParams kidSpec)
         {
-            var spec = new KidWithGuardingSpecification(ssn);
+            var spec = new KidWithGuardingSpecification(kidSpec);
             var kids = await _kidRepository.GetAllAsync(spec);
             var kidsDto = _mapper.Map<IReadOnlyList<KidToReturnDto>>(kids);
-            return Ok(kidsDto);
+            var countSpec = new KidWithFiltrationForCountAsync(kidSpec);
+            var count = await _kidRepository.GetCountWithSpecAsync(countSpec);
+            return Ok(new Pagination<KidToReturnDto>(kidSpec.PageSize,kidSpec.PageIndex,count,kidsDto));
         }
 
         [HttpGet("{id}")]

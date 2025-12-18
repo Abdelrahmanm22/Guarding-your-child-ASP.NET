@@ -27,6 +27,12 @@ namespace GuardingChild.Repositories.Concretes
         {
             return await dbContext.Set<T>().FindAsync(id);
         }
+
+        public async Task<int> GetCountWithSpecAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
+
         public async Task<T> GetByIdAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).FirstOrDefaultAsync();

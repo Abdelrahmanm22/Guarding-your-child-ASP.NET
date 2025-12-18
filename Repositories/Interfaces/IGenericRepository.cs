@@ -9,5 +9,6 @@ namespace GuardingChild.Repositories.Interfaces
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<T> GetByIdAsync(ISpecification<T> spec);
         Task<T> GetByIdAsync(int id);
+        Task<int> GetCountWithSpecAsync(ISpecification<T> spec);
     }
 }
