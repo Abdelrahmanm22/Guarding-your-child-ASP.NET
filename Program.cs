@@ -5,8 +5,10 @@ using GuardingChild.Errors;
 using GuardingChild.Extensions;
 using GuardingChild.Helpers;
 using GuardingChild.Middlewares;
+using GuardingChild.Models.Identity;
 using GuardingChild.Repositories.Concretes;
 using GuardingChild.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -43,6 +45,8 @@ namespace GuardingChild
                 await dbContext.Database.MigrateAsync(); //Update - Database
 
                 #region Data Seeding
+
+                await AppIdentityDbContextSeed.SeedUserAsync(Services.GetRequiredService<UserManager<AppUser>>());
                 await GuardingChildSeed.SeedAsync(dbContext);
                 #endregion
             }
