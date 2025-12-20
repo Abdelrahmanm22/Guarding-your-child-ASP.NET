@@ -16,7 +16,7 @@ public static class AppIdentityDbContextSeed
                 UserName = "Doctor1",
                 PhoneNumber = "01015496488",
             };
-            await userManager.CreateAsync(user, "12345678");
+            await userManager.CreateAsync(user, "Pa$$w0rd");
             
             var user2 = new AppUser
             {
@@ -25,7 +25,7 @@ public static class AppIdentityDbContextSeed
                 UserName = "Police1",
                 PhoneNumber = "01015496488",
             };
-            await userManager.CreateAsync(user2, "12345678");
+            await userManager.CreateAsync(user2, "Pa$$w0rd");
         }
     }
 }
