@@ -1,4 +1,4 @@
-﻿namespace GuardingChild.Errors;
+namespace GuardingChild.Errors;
 
 public class ApiResponse
 {
@@ -17,6 +17,7 @@ public class ApiResponse
         {
             400 => "Bad Request",
             401 => "You are not Authorized",
+            403 => "Not Allowed to access this endpoint",
             404 => "Not Found",
             500 => "Internal Server Error",
             _ => null,

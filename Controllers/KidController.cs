@@ -3,8 +3,10 @@ using GuardingChild.DTOs;
 using GuardingChild.Errors;
 using GuardingChild.Helpers;
 using GuardingChild.Models;
+using GuardingChild.Models.Identity;
 using GuardingChild.Repositories.Interfaces;
 using GuardingChild.Specifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +22,7 @@ namespace GuardingChild.Controllers
             _kidRepository = kidRepository;
             _mapper = mapper;
         }
+        [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet]
         public async Task<ActionResult<Pagination<KidToReturnDto>>> GetKids([FromQuery]KidSpecParams kidSpec)
         {
@@ -31,6 +34,7 @@ namespace GuardingChild.Controllers
             return Ok(new Pagination<KidToReturnDto>(kidSpec.PageSize,kidSpec.PageIndex,count,kidsDto));
         }
 
+        [Authorize(Roles = UserRoles.Police)]
         [HttpGet("{id}")]
         public async Task<ActionResult<KidToReturnDto>> GetKid(int id)
         {

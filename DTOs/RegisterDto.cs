@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
+
 namespace GuardingChild.DTOs;
 
 public class RegisterDto
@@ -15,7 +16,10 @@ public class RegisterDto
     public string PhoneNumber { get; set; }
 
     [Required]
-    [RegularExpression("(?=^.{6,10}$)(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&amp;*()_+]).*$",
+    public string Role { get; set; }
+
+    [Required]
+    [RegularExpression("(?=^.{6,10}$)(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+]).*$",
         ErrorMessage = "Password must contain 1 Uppercase, 1 Lowercase, 1 Digit, 1 Special Character")]
     public string Password { get; set; }
 }

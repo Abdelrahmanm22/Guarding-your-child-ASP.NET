@@ -1,9 +1,8 @@
+using System.Linq;
 using GuardingChild.DTOs;
 using GuardingChild.Errors;
 using GuardingChild.Models.Identity;
-using GuardingChild.Services.Concretes;
 using GuardingChild.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,46 +14,68 @@ namespace GuardingChild.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ITokenService _tokenService;
 
-        public AccountsController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,ITokenService tokenService)
+        public AccountsController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenService = tokenService;
         }
+
         [HttpPost("Register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto model)
         {
-            var User = new AppUser()
+            if (!UserRoles.TryNormalize(model.Role, out var normalizedRole))
+            {
+                return BadRequest(new ApiResponse(400, "Role must be Doctor or Police"));
+            }
+
+            var user = new AppUser
             {
                 DisplayName = model.DisplayName,
                 Email = model.Email,
                 UserName = model.Email.Split('@')[0],
-                PhoneNumber =  model.PhoneNumber
+                PhoneNumber = model.PhoneNumber
             };
-            var Result = await _userManager.CreateAsync(User, model.Password);
-            if(!Result.Succeeded) return BadRequest(new ApiResponse(400));
-            var ReturnedUser = new UserDto()
+
+            var createResult = await _userManager.CreateAsync(user, model.Password);
+            if (!createResult.Succeeded)
             {
-                DisplayName = User.DisplayName,
-                Email = User.Email,
-                Token = await _tokenService.CreateTokenAsync(User,_userManager)
+                var errorMessage = createResult.Errors.FirstOrDefault()?.Description;
+                return BadRequest(new ApiResponse(400, errorMessage));
+            }
+
+            var roleResult = await _userManager.AddToRoleAsync(user, normalizedRole);
+            if (!roleResult.Succeeded)
+            {
+                var errorMessage = roleResult.Errors.FirstOrDefault()?.Description;
+                return BadRequest(new ApiResponse(400, errorMessage));
+            }
+
+            var returnedUser = new UserDto
+            {
+                DisplayName = user.DisplayName,
+                Email = user.Email,
+                Token = await _tokenService.CreateTokenAsync(user, _userManager)
             };
-            return Ok(ReturnedUser);
+            return Ok(returnedUser);
         }
+
         [HttpPost("Login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto model)
         {
-            var User = await _userManager.FindByEmailAsync(model.Email);
-            if (User is null) return Unauthorized(new ApiResponse(401));
-            var Result = await _signInManager.CheckPasswordSignInAsync(User, model.Password, false);
-            if(!Result.Succeeded) return Unauthorized(new ApiResponse(401));
-            var ReturnedUser = new UserDto()
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user is null) return Unauthorized(new ApiResponse(401));
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+            if (!result.Succeeded) return Unauthorized(new ApiResponse(401));
+
+            var returnedUser = new UserDto
             {
-                DisplayName = User.DisplayName,
-                Email = User.Email,
-                Token = await _tokenService.CreateTokenAsync(User,_userManager)
+                DisplayName = user.DisplayName,
+                Email = user.Email,
+                Token = await _tokenService.CreateTokenAsync(user, _userManager)
             };
-            return Ok(ReturnedUser);
+            return Ok(returnedUser);
         }
     }
 }

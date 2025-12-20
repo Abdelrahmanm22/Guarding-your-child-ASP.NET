@@ -1,31 +1,43 @@
-﻿using GuardingChild.Models.Identity;
+using GuardingChild.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 
 namespace GuardingChild.Data;
 
 public static class AppIdentityDbContextSeed
 {
-    public static async Task SeedUserAsync(UserManager<AppUser> userManager)
+    public static async Task SeedUserAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
     {
+        if (!await roleManager.RoleExistsAsync(UserRoles.Doctor))
+        {
+            await roleManager.CreateAsync(new IdentityRole(UserRoles.Doctor));
+        }
+
+        if (!await roleManager.RoleExistsAsync(UserRoles.Police))
+        {
+            await roleManager.CreateAsync(new IdentityRole(UserRoles.Police));
+        }
+
         if (!userManager.Users.Any())
         {
-            var user = new AppUser
+            var doctor = new AppUser
             {
                 DisplayName = "Doctor 1",
                 Email = "abdelrahmanmohamed2293@gmail.com",
                 UserName = "Doctor1",
                 PhoneNumber = "01015496488",
             };
-            await userManager.CreateAsync(user, "Pa$$w0rd");
+            await userManager.CreateAsync(doctor, "Pa$$w0rd");
+            await userManager.AddToRoleAsync(doctor, UserRoles.Doctor);
             
-            var user2 = new AppUser
+            var police = new AppUser
             {
                 DisplayName = "Police 1",
                 Email = "abdra1396@gmail.com",
                 UserName = "Police1",
                 PhoneNumber = "01015496488",
             };
-            await userManager.CreateAsync(user2, "Pa$$w0rd");
+            await userManager.CreateAsync(police, "Pa$$w0rd");
+            await userManager.AddToRoleAsync(police, UserRoles.Police);
         }
     }
 }
