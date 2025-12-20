@@ -1,6 +1,8 @@
 using GuardingChild.DTOs;
 using GuardingChild.Errors;
 using GuardingChild.Models.Identity;
+using GuardingChild.Services.Concretes;
+using GuardingChild.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +13,13 @@ namespace GuardingChild.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly ITokenService _tokenService;
 
-        public AccountsController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        public AccountsController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,ITokenService tokenService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _tokenService = tokenService;
         }
         [HttpPost("Register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto model)
@@ -33,7 +37,7 @@ namespace GuardingChild.Controllers
             {
                 DisplayName = User.DisplayName,
                 Email = User.Email,
-                Token = "....."
+                Token = await _tokenService.CreateTokenAsync(User,_userManager)
             };
             return Ok(ReturnedUser);
         }
@@ -48,7 +52,7 @@ namespace GuardingChild.Controllers
             {
                 DisplayName = User.DisplayName,
                 Email = User.Email,
-                Token = "....."
+                Token = await _tokenService.CreateTokenAsync(User,_userManager)
             };
             return Ok(ReturnedUser);
         }
