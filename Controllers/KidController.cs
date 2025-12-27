@@ -6,6 +6,7 @@ using GuardingChild.Models;
 using GuardingChild.Models.Identity;
 using GuardingChild.Repositories.Interfaces;
 using GuardingChild.Specifications;
+using GuardingChild.UnitOfWorkPattern;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,32 +15,32 @@ namespace GuardingChild.Controllers
 {
     public class KidController : APIBaseController
     {
-        private readonly IGenericRepository<Kid> _kidRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public KidController(IGenericRepository<Kid> kidRepository,IMapper mapper)
+        public KidController(IUnitOfWork unitOfWork,IMapper mapper)
         {
-            _kidRepository = kidRepository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        [Authorize(Roles = UserRoles.Doctor)]
+        // [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet]
         public async Task<ActionResult<Pagination<KidToReturnDto>>> GetKids([FromQuery]KidSpecParams kidSpec)
         {
             var spec = new KidWithGuardingSpecification(kidSpec);
-            var kids = await _kidRepository.GetAllAsync(spec);
+            var kids = await _unitOfWork.Repository<Kid>().GetAllAsync(spec);
             var kidsDto = _mapper.Map<IReadOnlyList<KidToReturnDto>>(kids);
             var countSpec = new KidWithFiltrationForCountAsync(kidSpec);
-            var count = await _kidRepository.GetCountWithSpecAsync(countSpec);
+            var count = await _unitOfWork.Repository<Kid>().GetCountWithSpecAsync(countSpec);
             return Ok(new Pagination<KidToReturnDto>(kidSpec.PageSize,kidSpec.PageIndex,count,kidsDto));
         }
 
-        [Authorize(Roles = UserRoles.Police)]
+        // [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet("{id}")]
         public async Task<ActionResult<KidToReturnDto>> GetKid(int id)
         {
             var spec = new KidWithGuardingSpecification(id);
-            var kid = await _kidRepository.GetByIdAsync(spec);
+            var kid = await _unitOfWork.Repository<Kid>().GetByIdAsync(spec);
             if (kid is null)
             {
                 return NotFound(new ApiResponse(404));

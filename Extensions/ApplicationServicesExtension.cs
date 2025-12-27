@@ -2,6 +2,7 @@
 using GuardingChild.Helpers;
 using GuardingChild.Repositories.Concretes;
 using GuardingChild.Repositories.Interfaces;
+using GuardingChild.UnitOfWorkPattern;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GuardingChild.Extensions;
@@ -30,6 +31,7 @@ public static class ApplicationServicesExtension
             });
         });
         #endregion
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
 }
