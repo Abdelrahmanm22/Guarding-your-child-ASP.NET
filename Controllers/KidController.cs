@@ -4,7 +4,7 @@ using GuardingChild.Errors;
 using GuardingChild.Helpers;
 using GuardingChild.Models;
 using GuardingChild.Models.Identity;
-using GuardingChild.Repositories.Interfaces;
+using GuardingChild.Services.Interfaces;
 using GuardingChild.Specifications;
 using GuardingChild.UnitOfWorkPattern;
 using Microsoft.AspNetCore.Authorization;
@@ -17,13 +17,15 @@ namespace GuardingChild.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IKidService _kidService;
 
-        public KidController(IUnitOfWork unitOfWork,IMapper mapper)
+        public KidController(IUnitOfWork unitOfWork, IMapper mapper, IKidService kidService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _kidService = kidService;
         }
-        // [Authorize(Roles = UserRoles.Doctor)]
+        [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet]
         public async Task<ActionResult<Pagination<KidToReturnDto>>> GetKids([FromQuery]KidSpecParams kidSpec)
         {
@@ -35,7 +37,7 @@ namespace GuardingChild.Controllers
             return Ok(new Pagination<KidToReturnDto>(kidSpec.PageSize,kidSpec.PageIndex,count,kidsDto));
         }
 
-        // [Authorize(Roles = UserRoles.Doctor)]
+        [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet("{id}")]
         public async Task<ActionResult<KidToReturnDto>> GetKid(int id)
         {
@@ -44,6 +46,54 @@ namespace GuardingChild.Controllers
             if (kid is null)
             {
                 return NotFound(new ApiResponse(404));
+            }
+
+            var kidDto = _mapper.Map<KidToReturnDto>(kid);
+            return Ok(kidDto);
+        }
+
+        [Authorize(Roles = UserRoles.Doctor)]
+        [HttpPost]
+        public async Task<ActionResult<KidToReturnDto>> AddKid([FromForm] KidCreateDto model)
+        {
+            var (kid, errorMessage) = await _kidService.AddKidAsync(model);
+            if (errorMessage is not null)
+            {
+                return BadRequest(new ApiResponse(400, errorMessage));
+            }
+
+            var spec = new KidWithGuardingSpecification(kid.Id);
+            var createdKid = await _unitOfWork.Repository<Kid>().GetByIdAsync(spec);
+            var kidDto = _mapper.Map<KidToReturnDto>(createdKid);
+            return Ok(kidDto);
+        }
+
+        [Authorize(Roles = UserRoles.Doctor)]
+        [HttpPut("{id}")]
+        public async Task<ActionResult<string>> UpdateKid(int id, [FromForm] KidUpdateDto model)
+        {
+            var (message, errorMessage) = await _kidService.UpdateKidAsync(id, model);
+            if (errorMessage is not null)
+            {
+                return BadRequest(new ApiResponse(400, errorMessage));
+            }
+
+            return Ok(message);
+        }
+
+        [Authorize(Roles = UserRoles.Police)]
+        [HttpPost("search")]
+        public async Task<ActionResult<KidToReturnDto>> Search([FromForm] KidSearchDto model)
+        {
+            var (kid, errorMessage) = await _kidService.SearchAsync(model);
+            if (errorMessage is not null)
+            {
+                return BadRequest(new ApiResponse(400, errorMessage));
+            }
+
+            if (kid is null)
+            {
+                return Ok(null);
             }
 
             var kidDto = _mapper.Map<KidToReturnDto>(kid);

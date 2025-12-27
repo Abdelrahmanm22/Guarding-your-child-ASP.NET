@@ -10,5 +10,7 @@ namespace GuardingChild.Repositories.Interfaces
         Task<T> GetByIdAsync(ISpecification<T> spec);
         Task<T> GetByIdAsync(int id);
         Task<int> GetCountWithSpecAsync(ISpecification<T> spec);
+        Task AddAsync(T entity);
+        void Update(T entity);
     }
 }

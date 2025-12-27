@@ -9,6 +9,7 @@ namespace GuardingChild.UnitOfWorkPattern;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly GuardingChildContext _dbContext;
+    private IKidRepository _kidRepository;
     //private Dictionary<string, GenericRepository<>> _repositories; this need casting
     private Hashtable _repositories;
 
@@ -32,6 +33,8 @@ public class UnitOfWork : IUnitOfWork
         }
         return _repositories[type] as IGenericRepository<TModel>;
     }
+
+    public IKidRepository KidRepository => _kidRepository ??= new KidRepository(_dbContext);
 
     public async Task<int> CompleteAsync()
     {

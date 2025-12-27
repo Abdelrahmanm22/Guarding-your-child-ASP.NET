@@ -38,6 +38,16 @@ namespace GuardingChild.Repositories.Concretes
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
+        public async Task AddAsync(T entity)
+        {
+            await dbContext.Set<T>().AddAsync(entity);
+        }
+
+        public void Update(T entity)
+        {
+            dbContext.Set<T>().Update(entity);
+        }
+
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             return SpecificationEvalutor<T>.BuildQuery(dbContext.Set<T>(), spec);

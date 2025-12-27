@@ -2,6 +2,8 @@
 using GuardingChild.Helpers;
 using GuardingChild.Repositories.Concretes;
 using GuardingChild.Repositories.Interfaces;
+using GuardingChild.Services.Concretes;
+using GuardingChild.Services.Interfaces;
 using GuardingChild.UnitOfWorkPattern;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +34,8 @@ public static class ApplicationServicesExtension
         });
         #endregion
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IKidService, KidService>();
+        services.AddHttpClient();
         return services;
     }
 }
