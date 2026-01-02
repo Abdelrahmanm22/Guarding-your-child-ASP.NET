@@ -3,6 +3,7 @@ using GuardingChild.DTOs;
 using GuardingChild.Errors;
 using GuardingChild.Models.Identity;
 using GuardingChild.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,8 @@ namespace GuardingChild.Controllers
         }
 
         [HttpPost("Register")]
+        [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<UserDto>> Register(RegisterDto model)
         {
             if (!UserRoles.TryNormalize(model.Role, out var normalizedRole))
@@ -61,6 +64,8 @@ namespace GuardingChild.Controllers
         }
 
         [HttpPost("Login")]
+        [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<UserDto>> Login(LoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);

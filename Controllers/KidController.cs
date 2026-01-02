@@ -27,6 +27,9 @@ namespace GuardingChild.Controllers
         }
         [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet]
+        [ProducesResponseType(typeof(Pagination<KidToReturnDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<Pagination<KidToReturnDto>>> GetKids([FromQuery]KidSpecParams kidSpec)
         {
             var spec = new KidWithGuardingSpecification(kidSpec);
@@ -39,6 +42,10 @@ namespace GuardingChild.Controllers
 
         [Authorize(Roles = UserRoles.Doctor)]
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(KidToReturnDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<KidToReturnDto>> GetKid(int id)
         {
             var spec = new KidWithGuardingSpecification(id);
@@ -54,6 +61,10 @@ namespace GuardingChild.Controllers
 
         [Authorize(Roles = UserRoles.Doctor)]
         [HttpPost]
+        [ProducesResponseType(typeof(KidToReturnDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<KidToReturnDto>> AddKid([FromForm] KidCreateDto model)
         {
             var (kid, errorMessage) = await _kidService.AddKidAsync(model);
@@ -70,6 +81,10 @@ namespace GuardingChild.Controllers
 
         [Authorize(Roles = UserRoles.Doctor)]
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<string>> UpdateKid(int id, [FromForm] KidUpdateDto model)
         {
             var (message, errorMessage) = await _kidService.UpdateKidAsync(id, model);
@@ -83,6 +98,10 @@ namespace GuardingChild.Controllers
 
         [Authorize(Roles = UserRoles.Police)]
         [HttpPost("search")]
+        [ProducesResponseType(typeof(KidToReturnDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<KidToReturnDto>> Search([FromForm] KidSearchDto model)
         {
             var (kid, errorMessage) = await _kidService.SearchAsync(model);

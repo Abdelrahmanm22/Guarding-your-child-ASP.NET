@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace GuardingChild.Controllers
 {
@@ -19,6 +20,7 @@ namespace GuardingChild.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        [ProducesResponseType(typeof(IEnumerable<WeatherForecast>), StatusCodes.Status200OK)]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
